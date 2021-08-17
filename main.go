@@ -107,7 +107,7 @@ func sayPolo(chatID int64, text string) error {
 		return err
 	}
 
-	res, err := http.Post("https://api.telegram.org/bot1916277387:AAGTpoecSD0oSFZfLRl30maW8wuOJtHZiQI/sendMessage", "application/json", bytes.NewBuffer(reqBytes))
+	res, err := http.Post("https://api.telegram.org/bot<YOUR_BOT_TOKEN>/sendMessage", "application/json", bytes.NewBuffer(reqBytes))
 
 	if err != nil {
 		return err
