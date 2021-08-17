@@ -12,6 +12,7 @@ import (
 	"strings"
 )
 
+//go server side webhock with telegram bot to check if there is any new messages in https://mostaql.com
 type webhookReqBody struct {
 	Message struct {
 		Text string `json:"text"`
