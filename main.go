@@ -118,6 +118,17 @@ func sayPolo(chatID int64, text string) error {
 	}
 	return nil
 }
+func autoChecker() {
+	for {
+		messages := getMessagesNumber()
+		if messages != 0 {
+			YOUR_TELEGRAM_BOT_ID := 0
+			sayPolo(YOUR_TELEGRAM_BOT_ID, fmt.Sprint(messages))
+		}
+		time.Sleep(time.Minute)
+	}
+}
+
 func getPort() string {
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -127,5 +138,6 @@ func getPort() string {
 }
 
 func main() {
+	go autoChecker()
 	http.ListenAndServe(getPort(), http.HandlerFunc(Handler))
 }
